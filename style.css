@@ -53,14 +53,20 @@ main header {
   padding: 10px 20px;
 }
 .crtlist {
-  gap: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  border: 2px solid black;
 }
-.delbtn {
-  gap: 10px;
-  background-color: rgb(56, 50, 53);
-  color: white;
+.tskdiv {
+  color: blue;
+  background: palegreen;
 }
-.combtn {
+.chanText {
   text-decoration: line-through;
   opacity: 0.6;
+}
+.btn {
+  border: 2px solid black;
+  color: orangered;
 }
