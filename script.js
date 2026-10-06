@@ -1,4 +1,4 @@
-document.querySelector(".btn").addEventListener("click", () => {
+document.querySelector(".addbtn").addEventListener("click", () => {
   let input = document.querySelector(".input").value;
   let unolist = document.querySelector(".task-list");
   if (!input) {
@@ -32,10 +32,17 @@ document.querySelector(".btn").addEventListener("click", () => {
     let combtn = document.createElement("button");
     combtn.textContent = "Complete";
     combtn.classList.add("btn");
+
     tskdiv.appendChild(combtn);
 
     combtn.addEventListener("click", () => {
-      taskText.classList.add("chanText");
+      if (combtn.textContent === "Complete") {
+        taskText.classList.add("chanText");
+        combtn.textContent = "Incomplete";
+      } else {
+        taskText.classList.remove("chanText");
+        combtn.textContent = "Complete";
+      }
     });
 
     // delete button
