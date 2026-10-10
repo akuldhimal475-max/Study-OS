@@ -1,5 +1,5 @@
 document.querySelector(".addbtn").addEventListener("click", () => {
-  let input = document.querySelector(".input").value;
+  let input = document.querySelector(".input").value.trim();
   let unolist = document.querySelector(".task-list");
   if (!input) {
     console.log("data missing");
@@ -15,6 +15,7 @@ document.querySelector(".addbtn").addEventListener("click", () => {
 
     let taskText = document.createElement("span");
     taskText.textContent = input;
+    taskText.classList.add("taskText");
     crtlist.appendChild(taskText);
 
     console.log("data found");
@@ -31,7 +32,7 @@ document.querySelector(".addbtn").addEventListener("click", () => {
 
     let combtn = document.createElement("button");
     combtn.textContent = "Complete";
-    combtn.classList.add("btn");
+    combtn.classList.add("complete-btn");
 
     tskdiv.appendChild(combtn);
 
@@ -49,7 +50,7 @@ document.querySelector(".addbtn").addEventListener("click", () => {
 
     let delbtn = document.createElement("button");
     delbtn.textContent = "Delete";
-    delbtn.classList.add("btn");
+    delbtn.classList.add("delete-btn");
     tskdiv.appendChild(delbtn);
     delbtn.addEventListener("click", () => {
       crtlist.remove();
