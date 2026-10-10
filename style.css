@@ -46,27 +46,78 @@ main header {
   gap: 10px;
 }
 .task-input input {
+  font-size: 20px;
   padding: 10px;
   width: 300px;
 }
-.task-input button {
+.addbtn {
+  border: 2px solid black;
+  border-radius: 3px;
+  color: white;
+  background-color: orange;
+  font-size: 20px;
   padding: 10px 20px;
+  cursor: pointer;
+  transition:
+    border-radius 0.3s ease,
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+.addbtn:hover {
+  color: black;
+  border-radius: 9px;
+  background-color: white;
 }
 .crtlist {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
   padding: 20px;
+  margin: 10px;
   border: 2px solid black;
+  border-radius: 8px;
 }
 .tskdiv {
-  color: blue;
-  background: palegreen;
+  display: flex;
+  gap: 10px;
 }
 .chanText {
   text-decoration: line-through;
   opacity: 0.6;
 }
-.btn {
+.complete-btn {
+  border: 2px solid rgb(17, 17, 18);
+  color: black;
+  background-color: #f5f5f5;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    border-radius 0.2s ease;
+}
+.complete-btn:hover {
+  border-radius: 8px;
+  color: white;
+  background-color: black;
+}
+.delete-btn {
   border: 2px solid black;
-  color: orangered;
+  color: rgb(246, 246, 242);
+  background-color: rgb(14, 6, 6);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    border-radius 0.3s ease;
+}
+.delete-btn:hover {
+  border-radius: 8px;
+  color: black;
+  background-color: white;
+}
+.taskText {
+  font-size: larger;
 }
