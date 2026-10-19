@@ -12,10 +12,12 @@ document.querySelector(".addbtn").addEventListener("click", () => {
     return;
   }
 
-  tasks.push({
+  let task = {
     name: input,
     completed: false,
-  });
+  };
+
+  tasks.push(task);
   saveTasks();
 
   let unolist = document.querySelector(".task-list");
@@ -56,9 +58,13 @@ document.querySelector(".addbtn").addEventListener("click", () => {
     if (combtn.textContent === "Complete") {
       taskText.classList.add("chanText");
       combtn.textContent = "Incomplete";
+      task.completed = true;
+      saveTasks();
     } else {
       taskText.classList.remove("chanText");
       combtn.textContent = "Complete";
+      task.completed = false;
+      saveTasks();
     }
   });
 
@@ -69,6 +75,9 @@ document.querySelector(".addbtn").addEventListener("click", () => {
   delbtn.classList.add("delete-btn");
   tskdiv.appendChild(delbtn);
   delbtn.addEventListener("click", () => {
+    let index = tasks.indexOf(task);
+    tasks.splice(index, 1);
+    saveTasks();
     crtlist.remove();
   });
 });
