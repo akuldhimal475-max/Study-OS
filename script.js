@@ -4,6 +4,20 @@ function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+function renderTask(task) {
+  let crtlist = document.createElement("li");
+  crtlist.classList.add("crtlist");
+  let taskText = document.createElement("span");
+  taskText.textContento = task.name;
+  taskText.classList.add("taskText");
+  crtlist.appendChild(taskText);
+  document.querySelector(".task-list").appendChild(crtlist);
+}
+
+tasks.forEach((task) => {
+  renderTask(task);
+});
+
 document.querySelector(".addbtn").addEventListener("click", () => {
   let input = document.querySelector(".input").value.trim();
 
