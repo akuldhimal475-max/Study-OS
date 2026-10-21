@@ -8,7 +8,7 @@ function renderTask(task) {
   let crtlist = document.createElement("li");
   crtlist.classList.add("crtlist");
   let taskText = document.createElement("span");
-  taskText.textContento = task.name;
+  taskText.textContent = task.name;
   taskText.classList.add("taskText");
   crtlist.appendChild(taskText);
   document.querySelector(".task-list").appendChild(crtlist);
