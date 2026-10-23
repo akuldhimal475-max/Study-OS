@@ -48,8 +48,10 @@ function renderTask(task) {
   tskdiv.appendChild(delbtn);
   delbtn.addEventListener("click", () => {
     let index = tasks.indexOf(task);
-    tasks.splice(index, 1);
-    saveTasks();
+    if (index !== -1) {
+      tasks.splice(index, 1);
+      saveTasks();
+    }
     crtlist.remove();
   });
 
@@ -60,7 +62,8 @@ tasks.forEach((task) => {
   renderTask(task);
 });
 
-//main code
+//---MAIN-----CODE
+//----MAIN-----CODE
 document.querySelector(".addbtn").addEventListener("click", () => {
   let input = document.querySelector(".input").value.trim();
 
@@ -77,64 +80,9 @@ document.querySelector(".addbtn").addEventListener("click", () => {
   tasks.push(task);
   saveTasks();
 
-  let unolist = document.querySelector(".task-list");
-
-  // create list
-
-  let crtlist = document.createElement("li");
-  unolist.appendChild(crtlist);
-
-  // Add Class
-
-  crtlist.classList.add("crtlist");
-
-  let taskText = document.createElement("span");
-  taskText.textContent = input;
-  taskText.classList.add("taskText");
-  crtlist.appendChild(taskText);
-
-  console.log("data found");
-
-  //empty the box
+  renderTask(task);
 
   document.querySelector(".input").value = "";
 
-  let tskdiv = document.createElement("div");
-  tskdiv.classList.add("tskdiv");
-  crtlist.appendChild(tskdiv);
-
-  //complete button
-
-  let combtn = document.createElement("button");
-  combtn.textContent = "Complete";
-  combtn.classList.add("complete-btn");
-
-  tskdiv.appendChild(combtn);
-
-  combtn.addEventListener("click", () => {
-    if (combtn.textContent === "Complete") {
-      taskText.classList.add("chanText");
-      combtn.textContent = "Incomplete";
-      task.completed = true;
-      saveTasks();
-    } else {
-      taskText.classList.remove("chanText");
-      combtn.textContent = "Complete";
-      task.completed = false;
-      saveTasks();
-    }
-  });
-
-  // delete button
-
-  let delbtn = document.createElement("button");
-  delbtn.textContent = "Delete";
-  delbtn.classList.add("delete-btn");
-  tskdiv.appendChild(delbtn);
-  delbtn.addEventListener("click", () => {
-    let index = tasks.indexOf(task);
-    tasks.splice(index, 1);
-    saveTasks();
-    crtlist.remove();
-  });
+  console.log("data found");
 });
