@@ -11,6 +11,48 @@ function renderTask(task) {
   taskText.textContent = task.name;
   taskText.classList.add("taskText");
   crtlist.appendChild(taskText);
+
+  let tskdiv = document.createElement("div");
+  tskdiv.classList.add("tskdiv");
+  crtlist.appendChild(tskdiv);
+
+  //same like the button
+  let combtn = document.createElement("button");
+  combtn.textContent = "Complete";
+  combtn.classList.add("complete-btn");
+
+  tskdiv.appendChild(combtn);
+  if (task.completed === true) {
+    taskText.classList.add("chanText");
+    combtn.textContent = "Incomplete";
+  }
+
+  combtn.addEventListener("click", () => {
+    if (combtn.textContent === "Complete") {
+      taskText.classList.add("chanText");
+      combtn.textContent = "Incomplete";
+      task.completed = true;
+      saveTasks();
+    } else {
+      taskText.classList.remove("chanText");
+      combtn.textContent = "Complete";
+      task.completed = false;
+      saveTasks();
+    }
+  });
+
+  //like the delete button
+  let delbtn = document.createElement("button");
+  delbtn.textContent = "Delete";
+  delbtn.classList.add("delete-btn");
+  tskdiv.appendChild(delbtn);
+  delbtn.addEventListener("click", () => {
+    let index = tasks.indexOf(task);
+    tasks.splice(index, 1);
+    saveTasks();
+    crtlist.remove();
+  });
+
   document.querySelector(".task-list").appendChild(crtlist);
 }
 
@@ -18,6 +60,7 @@ tasks.forEach((task) => {
   renderTask(task);
 });
 
+//main code
 document.querySelector(".addbtn").addEventListener("click", () => {
   let input = document.querySelector(".input").value.trim();
 
