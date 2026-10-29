@@ -64,7 +64,8 @@ tasks.forEach((task) => {
 
 //---MAIN-----CODE
 //----MAIN-----CODE
-document.querySelector(".addbtn").addEventListener("click", () => {
+
+function addTask() {
   let input = document.querySelector(".input").value.trim();
 
   if (!input) {
@@ -83,6 +84,12 @@ document.querySelector(".addbtn").addEventListener("click", () => {
   renderTask(task);
 
   document.querySelector(".input").value = "";
+}
 
-  console.log("data found");
+document.querySelector(".addbtn").addEventListener("click", addTask);
+
+document.querySelector(".input").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    addTask();
+  }
 });
