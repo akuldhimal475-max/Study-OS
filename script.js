@@ -38,6 +38,7 @@ function renderTask(task) {
       combtn.textContent = "Complete";
       task.completed = false;
       saveTasks();
+      updateTaskCount();
     }
   });
 
@@ -51,6 +52,7 @@ function renderTask(task) {
     if (index !== -1) {
       tasks.splice(index, 1);
       saveTasks();
+      updateTaskCount();
     }
     crtlist.remove();
   });
@@ -80,6 +82,7 @@ function addTask() {
 
   tasks.push(task);
   saveTasks();
+  updateTaskCount();
 
   renderTask(task);
 
@@ -93,3 +96,7 @@ document.querySelector(".input").addEventListener("keydown", (event) => {
     addTask();
   }
 });
+function updateTaskCount() {
+  document.querySelector(".task-count").textContent = tasks.length;
+}
+updateTaskCount();
